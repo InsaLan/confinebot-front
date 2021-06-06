@@ -4,6 +4,7 @@ import Login from '@/views/Login.vue';
 import Home from '@/views/Home.vue';
 import Settings from '@/views/Settings.vue';
 import Match from '@/views/Match.vue';
+import Team from '@/views/Team.vue';
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,7 @@ const routes = [
   {
     path: '/team',
     name: 'team',
+    component: Team,
   },
 ];
 

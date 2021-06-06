@@ -6,12 +6,15 @@
       {{item.map}}: server: {{item.server.ip}} - STATUS: {{item.state}}
     </li>
   </ul>
+  <nav v-if="isAuthenticated">
+  </nav>
 </div>
 </template>
 
 <script>
 import {
   FETCH_ALL_MATCHES,
+  CREATE_MATCH,
 } from '@/store/action.type';
 import { mapGetters } from 'vuex';
 
@@ -20,8 +23,13 @@ export default {
   mounted() {
     this.$store.dispatch(FETCH_ALL_MATCHES);
   },
+  methods: {
+    onSubmit() {
+      this.$store.dispatch(CREATE_MATCH);
+    },
+  },
   computed: {
-    ...mapGetters(['matches']),
+    ...mapGetters(['matches', 'isAuthenticated']),
   },
 };
 </script>

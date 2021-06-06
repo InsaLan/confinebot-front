@@ -7,9 +7,7 @@ const ApiService = {
   init() {
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = API_URL;
-  },
-  setHeader(token) {
-    Vue.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    Vue.axios.defaults.withCredentials = true;
   },
   get(resource) {
     return Vue.axios.get(`${resource}`).catch((error) => {
@@ -18,6 +16,12 @@ const ApiService = {
   },
   post(resource, params) {
     return Vue.axios.post(`${resource}`, params);
+  },
+  delete(resource, params) {
+    return Vue.axios.delete(`${resource}`, params);
+  },
+  patch(resource, params) {
+    return Vue.axios.patch(`${resource}`, params);
   },
 };
 export default ApiService;

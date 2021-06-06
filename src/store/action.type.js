@@ -1,4 +1,9 @@
 export const LOGIN = 'login';
 export const LOGOUT = 'logout';
 export const CHECK_AUTH = 'checkAuth';
-export const FETCH_ALL_MATCHES = 'FetchAllMatches';
+export const FETCH_USER = 'fetchUser';
+export const FETCH_ALL_MATCHES = 'fetchAllMatches';
+export const CREATE_MATCH = 'createMatch';
+export const FETCH_TEAMS = 'fetchTeams';
+export const DELETE_TEAM = 'deleteTeam';
+export const CREATE_TEAM = 'CreateTeam';

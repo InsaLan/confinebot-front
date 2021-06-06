@@ -1,7 +1,12 @@
 import ApiService from '@/utils/api.service';
-import { FILL_MATCH } from '@/store/mutation.type';
+import {
+  FILL_MATCH,
+  ADD_MATCH,
+} from '@/store/mutation.type';
+
 import {
   FETCH_ALL_MATCHES,
+  CREATE_MATCH,
 } from './action.type';
 
 const state = {
@@ -29,12 +34,29 @@ const actions = {
         });
     });
   },
+  [CREATE_MATCH](context) {
+    return new Promise((resolve) => {
+      ApiService.post('/match')
+        .then(({ data }) => {
+          context.commit();
+          console.log(data);
+          resolve(data);
+        })
+        .catch(({ res }) => {
+          console.log(res);
+        });
+    });
+  },
 };
 
 const mutations = {
   // eslint-disable-next-line no-shadow
-  [FILL_MATCH](state, matches) {
-    state.matches = matches;
+  [FILL_MATCH](state, m) {
+    state.matches = m;
+  },
+  // eslint-disable-next-line no-shadow
+  [ADD_MATCH](state, m) {
+    state.matches.push(m);
   },
 };
 export default {

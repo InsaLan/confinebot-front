@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import {
+  FETCH_USER,
+} from '@/store/action.type';
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Settings',
+  mounted() {
+    this.$store.dispatch(FETCH_USER);
+  },
+  computed: {
+    ...mapGetters(['user']),
+  },
 };
 </script>
 

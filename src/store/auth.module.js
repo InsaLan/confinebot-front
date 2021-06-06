@@ -37,7 +37,7 @@ const actions = {
   },
   [CHECK_AUTH](context) { // add header to request to handle protected endpoints
     if (state.user.token) {
-      ApiService.setHeader(state.user.token);
+      // ApiService.setHeader(state.user.token);
       ApiService.get('user')
         .then(({ data }) => {
           console.log(data);
